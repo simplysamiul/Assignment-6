@@ -118,7 +118,18 @@ searchBtn.addEventListener('click', function () {
 })
 
 sliderBtn.addEventListener('click', function () {
+  // check for negative timer
+  if (parseInt(document.getElementById("duration").value) < 500) {
+    alert("Needed more than (499)mili second for creating a slider");
+    return;
+  }
   createSlider()
 })
 
 
+document.getElementById("search")
+  .addEventListener("keypress", function (event) {
+    if (event.key === 'Enter') {
+      document.getElementById("search-btn").click();
+    }
+  });
